@@ -7,7 +7,20 @@ console.log("Sample JavaScript #1 HW #13");
  */
 
 // имя переменной: myNum, значение: 10
+var myNum = 10;
+var myStr = "строка";
+var myBool = true;
+var myArr = [1, 2, 3, 4, 5];
+var myObj = {
+  first: "First Name",
+  last: "Last Name",
+};
 
+console.log("myNum:", myNum);
+console.log("myStr:", myStr);
+console.log("myBool:", myBool);
+console.log("myArr:", myArr);
+console.log("myObj:", myObj);
 // имя переменной: myStr, значение: 'строка'
 
 // имя переменной: myBool, значение: true
@@ -26,6 +39,9 @@ console.log("Sample JavaScript #1 HW #13");
 
 // decimal2
 
+var decimal2 = myNum.toFixed(2);
+console.log("decimal2:", decimal2);
+
 /*
  * #3
  *
@@ -35,6 +51,13 @@ console.log("Sample JavaScript #1 HW #13");
  */
 
 // i
+var i = 1;
+console.log("++i:", ++i);
+console.log("i++:", i++);
+console.log("i:", i);
+console.log("--i:", --i);
+console.log("i--:", i--);
+console.log("i:", i);
 
 /*
  * #4
@@ -56,6 +79,22 @@ console.log("Sample JavaScript #1 HW #13");
 // /=
 
 // %=
+var myTest = 20;
+
+myTest += myNum;
+console.log("+=:", myTest);
+
+myTest -= myNum;
+console.log("-=:", myTest);
+
+myTest *= myNum;
+console.log("*=:", myTest);
+
+myTest /= myNum;
+console.log("/=:", myTest);
+
+myTest %= myNum;
+console.log("%=:", myTest);
 
 /*
  * #5
@@ -70,6 +109,17 @@ console.log("Sample JavaScript #1 HW #13");
 // случайное число между 0..10 → myRandom
 
 // 3 в 5 степени → myPow
+var myPi = Math.PI;
+console.log("myPi:", myPi);
+
+var myRound = Math.round(89.279);
+console.log("myRound:", myRound);
+
+var myRandom = Math.random() * 10;
+console.log("myRandom:", myRandom);
+
+var myPow = Math.pow(3, 5);
+console.log("myPow:", myPow);
 
 /*
  * #6
@@ -81,7 +131,9 @@ console.log("Sample JavaScript #1 HW #13");
 // Мама мыла раму, рама мыла маму
 
 // strObj
-
+var strObj = { str: "Мама мыла раму, рама мыла маму" };
+strObj.length = strObj.str.length;
+console.log("strObj =", strObj);
 /*
  * #7
  *
@@ -90,6 +142,9 @@ console.log("Sample JavaScript #1 HW #13");
  */
 
 // isRamaPos
+
+var isRamaPos = strObj.str.indexOf("рама");
+console.log("isRamaPos:", isRamaPos);
 
 /*
  * #8
@@ -102,8 +157,14 @@ console.log("Sample JavaScript #1 HW #13");
 
 // strReplace
 
+var strReplace = strObj.str.replace("мыла", "моет");
+strReplace = strReplace.replace("рама", "Рама");
+strReplace = strReplace.replace("мыла", "держит");
+console.log("strReplace:", strReplace);
 /*
  * #9
  *
  * Преобразуйте любую строку в верхний, затем в нижний регистры, результат отобразите в консоли.
  */
+console.log("Любая Строка".toUpperCase());
+console.log("Любая Строка".toLowerCase());
