@@ -104,6 +104,17 @@ let counting = (function () {
  * console.log(myPow(2, 3, myPrint)); // 2^3=8
  */
 
+let myPrint = (a, b, res) => `${a}^${b}=${res}`;
+let myPow = (a, b, callback) => {
+  let pow = (x, n) => {
+    if (n !== 1) return (x *= pow(x, n - 1));
+
+    return x;
+  };
+
+  return callback(a, b, pow(a, b));
+};
+
 //  console.log(myPow(3, 4, myPrint)); // 3^4=81
 
 // console.log(myPow(2, 3, myPrint)); // 2^3=8
@@ -138,27 +149,38 @@ let counting = (function () {
  * - необходимо изменить год выпуска автомобиля, установив в качестве значения текущий год
  * - если сеттеру used присвоено значение 'used', ничего делать не нужно
  */
-var car = {
-  enedine: "2000",
-  model: "Chevrolet",
-  name: "Lacetti",
-  year: "2020",
-  used: "new",
+
+function fullInfo() {
+  return `${this.name} ${this.model}, ${this.engine}cc, year ${this.year}, ${this.used}`;
+}
+
+let yearNow = new Date().getFullYear();
+let car = {
+  engine: 2000,
+  model: "Lacetti",
+  name: "Chevrolet",
+  year: 2010,
+  info: fullInfo,
+  get used() {
+    return this.year !== yearNow ? "used" : "new";
+  },
+  set used(value) {
+    if (value === "new" && this.year < yearNow) this.year = yearNow;
+  },
 };
 
-car.info = function () {
-  return (
-    this.model +
-    " " +
-    this.name +
-    ", " +
-    this.enedine +
-    "cc " +
-    "year " +
-    this.year +
-    " " +
-    this.used
-  );
+let car2 = {
+  engine: 5000,
+  model: "FX50 AWD",
+  name: "Infinite",
+  year: 2019,
+  info: fullInfo,
+  get used() {
+    return yearNow - this.year ? "used" : "new";
+  },
+  set used(value) {
+    if (value === "new" && this.year < yearNow) this.year = yearNow;
+  },
 };
 
 // let yearNow = new Date().getFullYear(); // получить текущий год как число
